@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đề Xuất Tính Năng Vật Lý - Flexio Fx888VN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc; }
+        .card-shadow { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+        .tab-active { background-color: #1e293b; color: white; border-color: #1e293b; }
+        .tab-inactive { background-color: transparent; color: #475569; border-bottom: 2px solid transparent; }
+        .tab-inactive:hover { color: #1e293b; border-bottom: 2px solid #cbd5e1; }
+        /* Ẩn thanh cuộn cho phần tab nhưng vẫn vuốt được trên mobile */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Container giới hạn chiều rộng để cân đối -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- Header -->
+        <header class="mb-8 border-b pb-4 border-gray-200">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">ĐỀ XUẤT TÍNH NĂNG VẬT LÝ CHO MÁY TÍNH KHOA HỌC FLEXIO Fx888VN</h1>
+            <p class="text-base text-gray-500 mt-2">Cơ sở: Chương trình GDPT 2018 | Quy chế thi Thông tư 24/2024</p>
+        </header>
+
+        <!-- KPI Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white p-5 rounded-xl card-shadow border-t-4 border-blue-500">
+                <p class="text-xs text-gray-500 font-semibold uppercase tracking-wide">TỔNG SỐ TÍNH NĂNG</p>
+                <div class="flex items-baseline mt-1">
+                    <h3 class="text-3xl font-bold text-gray-900">04</h3>
+                    <span class="text-sm font-medium text-gray-500 ml-2">đề xuất</span>
+                </div>
+                <p class="text-xs text-blue-700 mt-3 font-medium bg-blue-50 inline-block px-2.5 py-1 rounded-full">100% bám sát cấu trúc đề thi</p>
+            </div>
+            
+            <div class="bg-white p-5 rounded-xl card-shadow border-t-4 border-green-500">
+                <p class="text-xs text-gray-500 font-semibold uppercase tracking-wide">ĐỐI TƯỢNG HƯỚNG ĐẾN</p>
+                <div class="flex items-baseline mt-1">
+                    <h3 class="text-3xl font-bold text-gray-900">Cấp 2 & 3</h3>
+                </div>
+                <p class="text-xs text-green-700 mt-3 font-medium bg-green-50 inline-block px-2.5 py-1 rounded-full">Trọng tâm KHTN 9 & Lý 12</p>
+            </div>
+            
+            <div class="bg-white p-5 rounded-xl card-shadow border-t-4 border-orange-500">
+                <p class="text-xs text-gray-500 font-semibold uppercase tracking-wide">SO SÁNH CASIO 880BTG</p>
+                <div class="flex items-baseline mt-1">
+                    <h3 class="text-3xl font-bold text-gray-900">Vượt trội</h3>
+                </div>
+                <p class="text-xs text-orange-700 mt-3 font-medium bg-orange-50 inline-block px-2.5 py-1 rounded-full">4/4 tính năng độc quyền</p>
+            </div>
+            
+            <div class="bg-white p-5 rounded-xl card-shadow border-t-4 border-purple-500">
+                <p class="text-xs text-gray-500 font-semibold uppercase tracking-wide">QUY CHẾ THI (TT 24/2024)</p>
+                <div class="flex items-baseline mt-1">
+                    <h3 class="text-3xl font-bold text-gray-900">An Toàn</h3>
+                </div>
+                <p class="text-xs text-purple-700 mt-3 font-medium bg-purple-50 inline-block px-2.5 py-1 rounded-full">Không text/thẻ nhớ/truyền tin</p>
+            </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="border-b border-gray-200 mb-8">
+            <nav class="-mb-px flex space-x-6 overflow-x-auto no-scrollbar" aria-label="Tabs">
+                <button onclick="switchTab('tab-all')" id="btn-tab-all" class="tab-active whitespace-nowrap py-4 px-4 border-b-2 font-medium text-sm transition-colors rounded-t-lg">
+                    <i class="fas fa-table mr-2"></i>Bảng Tổng Hợp
+                </button>
+                <button onclick="switchTab('tab-thunguyen')" id="btn-tab-thunguyen" class="tab-inactive whitespace-nowrap py-4 px-4 border-b-2 font-medium text-sm transition-colors rounded-t-lg">
+                    Rút gọn thứ nguyên
+                </button>
+                <button onclick="switchTab('tab-bantaytrai')" id="btn-tab-bantaytrai" class="tab-inactive whitespace-nowrap py-4 px-4 border-b-2 font-medium text-sm transition-colors rounded-t-lg">
+                    Bàn tay trái
+                </button>
+                <button onclick="switchTab('tab-dothi')" id="btn-tab-dothi" class="tab-inactive whitespace-nowrap py-4 px-4 border-b-2 font-medium text-sm transition-colors rounded-t-lg">
+                    Đồ thị đẳng quá trình
+                </button>
+                <button onclick="switchTab('tab-thaukinh')" id="btn-tab-thaukinh" class="tab-inactive whitespace-nowrap py-4 px-4 border-b-2 font-medium text-sm transition-colors rounded-t-lg">
+                    Bài toán Thấu kính
+                </button>
+            </nav>
+        </div>
+
+        <!-- CONTENT: TAB ALL (Overview Table) -->
+        <div id="tab-all" class="tab-content block">
+            <div class="bg-white rounded-xl card-shadow overflow-hidden border border-gray-200">
+                <div class="bg-slate-800 text-white px-6 py-4">
+                    <h3 class="text-base font-bold">BẢNG TỔNG HỢP CHI TIẾT CÁC TÍNH NĂNG ĐỀ XUẤT</h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full text-sm text-left align-top">
+                        <thead class="bg-gray-50 text-gray-600 uppercase text-xs tracking-wider">
+                            <tr>
+                                <th class="px-6 py-4 font-semibold min-w-[220px]">Tính năng / Vận hành</th>
+                                <th class="px-6 py-4 font-semibold min-w-[150px]">Mức độ áp dụng</th>
+                                <th class="px-6 py-4 font-semibold min-w-[120px]">Đối tượng</th>
+                                <th class="px-6 py-4 font-semibold min-w-[200px]">Phạm vi chương trình</th>
+                                <th class="px-6 py-4 font-semibold min-w-[180px]">Cảm hứng / Quy chế</th>
+                                <th class="px-6 py-4 font-semibold min-w-[220px]">So sánh Casio 880BTG+</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 bg-white">
+                            <!-- Feature Thứ nguyên -->
+                            <tr class="hover:bg-blue-50 transition-colors">
+                                <td class="px-6 py-4 border-r border-gray-100">
+                                    <span class="font-bold text-blue-700 text-base block mb-2">Rút gọn thứ nguyên</span>
+                                    <p class="text-xs text-gray-600 leading-relaxed"><strong>Vận hành:</strong> MENU → [Thứ nguyên] → nhập biểu thức đơn vị (+,-,x,/, mũ, căn) → [=] → Hiển thị SI cơ bản & Tên đơn vị dẫn xuất.</p>
+                                </td>
+                                <td class="px-6 py-4 text-gray-600 text-xs border-r border-gray-100 leading-relaxed">
+                                    - Chương trình phổ thông<br>- Kỳ thi HSG các cấp (suy đơn vị đại lượng tổ hợp)<br>- Câu hỏi tư duy logic
+                                </td>
+                                <td class="px-6 py-4 text-xs border-r border-gray-100 font-semibold text-gray-800">
+                                    Cả Cấp 2 & Cấp 3
+                                </td>
+                                <td class="px-6 py-4 text-xs border-r border-gray-100 text-gray-600 leading-relaxed">
+                                    Xuyên suốt mọi chương. Giá trị cao nhất ở các chương điện (KHTN 9, Lý 11), nhiệt - khí (Lý 12).
+                                </td>
+                                <td class="px-6 py-4 text-xs border-r border-gray-100 text-gray-600 leading-relaxed">
+                                    <strong>Cảm hứng:</strong> NumWorks (Pháp), pp phân tích thứ nguyên luyện HSG.<br>
+                                    <span class="text-green-600 font-semibold mt-2 block"><i class="fas fa-shield-alt mr-1"></i>An toàn quy chế</span>
+                                </td>
+                                <td class="px-6 py-4 text-xs text-gray-600 leading-relaxed">
+                                    <span class="font-bold text-blue-600 block mb-1">ĐỘC QUYỀN.</span> Casio chỉ có menu CONV đổi từng cặp rời rạc, KHÔNG có phép toán trên đơn vị.
+                                </td>
+                            </tr>
+                            
+                            <!-- Feature Bàn tay trái -->
+                            <tr class="hover:bg-green-50 transition-colors">
+                                <td class="px-6 py-4 border-r border-gray-100">
+                                    <span class="font-bold text-green-700 text-base block mb-2">Bàn tay trái (6 hướng)</span>
+                                    <p class="text-xs text-gray-600 leading-relaxed"><strong>Vận hành:</strong> Chọn đối tượng (Dây/Hạt) → Chọn đại lượng cần tìm → Chọn hướng 2 đại lượng đã biết (← → ↑ ↓ ⊙ ⊗) → Trả hướng còn lại + Hình minh họa.</p>
+                                </td>
+                                <td class="px-6 py-4 text-gray-600 text-xs border-r border-gray-100 leading-relaxed">
+                                    - Chương trình phổ thông<br>- Câu Đúng/Sai định tính đề TN<br>- Công cụ luyện tập - tự kiểm tra
+                                </td>
+                                <td class="px-6 py-4 text-xs border-r border-gray-100 text-gray-800">
+                                    <span class="font-semibold block">Cấp 3 (Chủ lực)</span><span class="text-gray-500">Cấp 2 (Tham khảo)</span>
+                                </td>
+                                <td class="px-6 py-4 text-xs border-r border-gray-100 text-gray-600 leading-relaxed">
+                                    Lý 12: Từ trường (lực từ, cảm ứng từ), lực Lorentz.
+                                </td>
+                                <td class="px-6 py-4 text-xs border-r border-gray-100 text-gray-600 leading-relaxed">
+                                    <strong>Cảm hứng:</strong> Bàn tay trái SGK, hệ ký hiệu ⊙ ⊗ chuẩn đề thi.<br>
+                                    <span class="text-green-600 font-semibold mt-2 block"><i class="fas fa-shield-alt mr-1"></i>Hợp quy chế</span>
+                                </td>
+                                <td class="px-6 py-4 text-xs text-gray-600 leading-relaxed">
+                                    <span class="font-bold text-green-600 block mb-1">ĐỘC QUYỀN.</span> Casio toàn cầu chưa từng số hóa quy tắc chiều. "First in the world".
+                                </td>
+                            </tr>
+
+                            <!-- Feature Đồ thị đẳng quá trình -->
+                            <tr class="hover:bg-orange-50 transition-colors">
+                                <td class="px-6 py-4 border-r border-gray-100">
+                                    <span class="font-bold text-orange-700 text-base block mb-2">Đồ thị đẳng quá trình</span>
+                                    <p class="text-xs text-gray-600 leading-relaxed"><strong>Vận hành:</strong> Chọn quá trình → Chọn hệ trục → Nhập trạng thái (tùy chọn) → Máy vẽ đường. Phím [AXES] xoay vòng 3 hệ trục (p-V, p-T, V-T).</p>
+                                </td>
+                                <td class="px-6 py-4 text-gray-600 text-xs border-r border-gray-100 leading-relaxed">
+                                    - Chương trình phổ thông (Trọng tâm đề TN)<br>- Câu Đúng/Sai nhận diện đồ thị<br>- HSG
+                                </td>
+                                <td class="px-6 py-4 text-xs border-r border-gray-100 font-semibold text-gray-800">
+                                    Cấp 3 (Lý 12)
+                                </td>
+                                <td class="px-6 py-4 text-xs border-r border-gray-100 text-gray-600 leading-relaxed">
+                                    Lý 12: Khí lí tưởng (Boyle, Charles, đẳng tích, pt trạng thái).
+                                </td>
+                                <td class="px-6 py-4 text-xs border-r border-gray-100 text-gray-600 leading-relaxed">
+                                    <strong>Cảm hứng:</strong> Bộ 3 hình đẳng quá trình SGK Lý 12.<br>
+                                    <span class="text-green-600 font-semibold mt-2 block"><i class="fas fa-shield-alt mr-1"></i>An toàn tuyệt đối</span>
+                                </td>
+                                <td class="px-6 py-4 text-xs text-gray-600 leading-relaxed">
+                                    <span class="font-bold text-orange-600 block mb-1">ĐỘC QUYỀN.</span> Đối thủ không vẽ được đồ thị vật lý trên dòng máy khoa học (phải mua dòng đồ họa đắt x3).
+                                </td>
+                            </tr>
+
+                            <!-- Feature Thấu kính -->
+                            <tr class="hover:bg-purple-50 transition-colors">
+                                <td class="px-6 py-4 border-r border-gray-100">
+                                    <span class="font-bold text-purple-700 text-base block mb-2">Bài toán Thấu Kính</span>
+                                    <p class="text-xs text-gray-600 leading-relaxed"><strong>Vận hành:</strong> Mode [Thấu kính] → Nhập 2/3 ẩn (d, d', f) theo quy ước → [=] → Trả đại lượng còn lại, k, và DÒNG KẾT LUẬN CHỮ.</p>
+                                </td>
+                                <td class="px-6 py-4 text-gray-600 text-xs border-r border-gray-100 leading-relaxed">
+                                    - Chương trình phổ thông<br>- Thi vào 10 (cả trường chuyên)<br>- Phục vụ trực tiếp bài tự luận
+                                </td>
+                                <td class="px-6 py-4 text-xs border-r border-gray-100 text-gray-800">
+                                    <span class="font-semibold block">Cấp 2 (KHTN 9)</span><span class="text-gray-500">Cấp 3 (Ôn tập)</span>
+                                </td>
+                                <td class="px-6 py-4 text-xs border-r border-gray-100 text-gray-600 leading-relaxed">
+                                    KHTN 9: Ánh sáng (thấu kính, ảnh qua thấu kính, kính lúp).
+                                </td>
+                                <td class="px-6 py-4 text-xs border-r border-gray-100 text-gray-600 leading-relaxed">
+                                    <strong>Cảm hứng:</strong> Bảng tính chất ảnh SGK 9.<br>
+                                    <span class="text-green-600 font-semibold mt-2 block"><i class="fas fa-shield-alt mr-1"></i>An toàn</span>
+                                </td>
+                                <td class="px-6 py-4 text-xs text-gray-600 leading-relaxed">
+                                    <span class="font-bold text-purple-600 block mb-1">ĐỘC QUYỀN.</span> Casio bỏ trống toàn bộ mảng quang học cấp 2. Vũ khí chốt sale lớp 9.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTENT: TAB THỨ NGUYÊN -->
+        <div id="tab-thunguyen" class="tab-content hidden animate-fade-in">
+            <div class="bg-white p-8 rounded-xl card-shadow border border-gray-100 mb-6">
+                <h2 class="text-2xl md:text-3xl font-bold text-blue-700 mb-2">RÚT GỌN THỨ NGUYÊN</h2>
+                <p class="text-gray-500 text-sm mb-6 pb-6 border-b border-gray-200">Nền tảng "Máy tính hiểu Vật lý" - Tránh mất điểm oan vì sai đơn vị.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-sm font-bold uppercase text-gray-400 tracking-wider mb-3"><i class="fas fa-info-circle mr-2 text-blue-500"></i>Mô tả & Cơ sở</h3>
+                        <p class="text-gray-700 text-sm leading-relaxed text-justify">
+                            Tính năng cho phép thực hiện PHÉP TOÁN TRÊN ĐƠN VỊ/THỨ NGUYÊN như thao tác trên số: nhân, chia, lũy thừa, khai căn các đơn vị, sau đó rút gọn về 7 đơn vị SI cơ bản và tự nhận diện tên đơn vị dẫn xuất. Yêu cầu 'sử dụng đúng đơn vị đo' là năng lực xuyên suốt môn KHTN 6-9 và Vật lí 10-12. Đề thi TN 2025+ chấm đáp số theo đơn vị chỉ định nên lỗi đơn vị là lỗi mất điểm phổ biến nhất.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold uppercase text-gray-400 tracking-wider mb-3"><i class="fas fa-keyboard mr-2 text-blue-500"></i>Cách thức vận hành</h3>
+                        <div class="bg-blue-50/50 p-4 rounded-lg border border-blue-100 text-sm text-gray-800 leading-relaxed">
+                            <span class="font-mono bg-white border px-1 rounded shadow-sm text-xs">MENU</span> → <span class="font-mono bg-white border px-1 rounded shadow-sm text-xs">[Thứ nguyên]</span> → nhập biểu thức đơn vị bằng phím <span class="font-mono bg-white border px-1 rounded shadow-sm text-xs">[UNIT]</span> (đầy đủ phép nhân, chia, mũ, căn) → nhấn <span class="font-mono bg-white border px-1 rounded shadow-sm text-xs">[=]</span><br><br>
+                            <strong>Kết quả:</strong> Máy hiển thị hai dòng: dạng SI cơ bản và tên đơn vị dẫn xuất (nếu có).
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-sm font-bold uppercase text-gray-400 tracking-wider mb-4"><i class="fas fa-list mr-2 text-blue-500"></i>Ví dụ minh họa</h3>
+                <div class="overflow-x-auto rounded-lg border border-gray-200">
+                    <table class="min-w-full text-sm text-left">
+                        <thead class="bg-gray-50 text-gray-700">
+                            <tr>
+                                <th class="px-4 py-3 font-semibold w-1/3">Học sinh nhập (Biểu thức)</th>
+                                <th class="px-4 py-3 font-semibold w-1/4">Máy hiển thị</th>
+                                <th class="px-4 py-3 font-semibold">Ý nghĩa vật lý</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100">
+                            <tr>
+                                <td class="px-4 py-3 font-mono text-blue-600 bg-gray-50/50">kg · (m/s)² / m</td>
+                                <td class="px-4 py-3 font-bold text-gray-900">kg·m·s⁻² = N</td>
+                                <td class="px-4 py-3 text-gray-600">Kiểm chứng biểu thức lực hướng tâm mv²/r cho ra đơn vị lực</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-mono text-blue-600 bg-gray-50/50">kg / (m · s²)</td>
+                                <td class="px-4 py-3 font-bold text-gray-900">kg·m⁻¹·s⁻² = Pa</td>
+                                <td class="px-4 py-3 text-gray-600">Đơn vị của áp suất trong p = F/S = ρgh</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-mono text-blue-600 bg-gray-50/50">kg · m² / s³</td>
+                                <td class="px-4 py-3 font-bold text-gray-900">kg·m²·s⁻³ = W</td>
+                                <td class="px-4 py-3 text-gray-600">Đơn vị công suất trong P = A/t</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-mono text-blue-600 bg-gray-50/50">V / m</td>
+                                <td class="px-4 py-3 font-bold text-gray-900">kg·m·A⁻¹·s⁻³</td>
+                                <td class="px-4 py-3 text-gray-600">Rút gọn đơn vị cường độ điện trường; đối chiếu thấy trùng kết quả của N/C</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-mono text-blue-600 bg-gray-50/50">√( N / kg × m )</td>
+                                <td class="px-4 py-3 font-bold text-gray-900">m·s⁻¹</td>
+                                <td class="px-4 py-3 text-gray-600">Suy thứ nguyên √(gl) ra đơn vị vận tốc (thao tác quen của luyện HSG)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-mono text-blue-600 bg-gray-50/50">J / (kg · K)</td>
+                                <td class="px-4 py-3 font-bold text-gray-900">m²·s⁻²·K⁻¹</td>
+                                <td class="px-4 py-3 text-gray-600">Suy đơn vị nhiệt dung riêng c trong Q=mcΔT (Câu 1 đề TN 2025 hỏi dạng này)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTENT: TAB BÀN TAY TRÁI -->
+        <div id="tab-bantaytrai" class="tab-content hidden animate-fade-in">
+            <div class="bg-white p-8 rounded-xl card-shadow border border-gray-100 mb-6">
+                <h2 class="text-2xl md:text-3xl font-bold text-green-700 mb-2">BÀN TAY TRÁI: LA BÀN 6 HƯỚNG</h2>
+                <p class="text-gray-500 text-sm mb-6 pb-6 border-b border-gray-200">Số hóa quy tắc bàn tay trái - Giải quyết nhanh câu Đúng/Sai định tính.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-sm font-bold uppercase text-gray-400 tracking-wider mb-3"><i class="fas fa-info-circle mr-2 text-green-500"></i>Mô tả & Cơ sở</h3>
+                        <p class="text-gray-700 text-sm leading-relaxed text-justify">
+                            Số hóa quy tắc bàn tay trái để xác định chiều lực từ tác dụng lên dây dẫn và lên điện tích chuyển động. Mọi hướng được biểu diễn bằng hệ 6 hướng đúng ký hiệu đề thi Việt Nam: ← → ↑ ↓ cùng ⊙ (ra ngoài) và ⊗ (vào trong). Đáp ứng trực tiếp phần Đúng/Sai của cả đề 2025 và đề 2026.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold uppercase text-gray-400 tracking-wider mb-3"><i class="fas fa-keyboard mr-2 text-green-500"></i>Cách thức vận hành</h3>
+                        <div class="bg-green-50/50 p-4 rounded-lg border border-green-100 text-sm text-gray-800 leading-relaxed">
+                            1. Chọn đối tượng: <span class="font-mono bg-white border px-1 rounded shadow-sm text-xs">[Dây dẫn]</span> / <span class="font-mono bg-white border px-1 rounded shadow-sm text-xs">[Điện tích q]</span><br>
+                            2. Chọn đại lượng cần tìm: F, B, I/v<br>
+                            3. Dùng phím điều hướng chọn hướng cho 2 đại lượng đã biết trên la bàn.<br>
+                            4. <strong>Kết quả:</strong> Máy hiển thị hướng đại lượng còn lại + HÌNH MINH HỌA (có mũi tên gắn nhãn).
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-sm font-bold uppercase text-gray-400 tracking-wider mb-4"><i class="fas fa-list mr-2 text-green-500"></i>Ví dụ minh họa</h3>
+                <div class="overflow-x-auto rounded-lg border border-gray-200">
+                    <table class="min-w-full text-sm text-left">
+                        <thead class="bg-gray-50 text-gray-700">
+                            <tr>
+                                <th class="px-4 py-3 font-semibold w-1/3">Đầu vào (Học sinh nhập)</th>
+                                <th class="px-4 py-3 font-semibold w-1/4">Máy trả kết quả</th>
+                                <th class="px-4 py-3 font-semibold">Ghi chú</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100">
+                            <tr>
+                                <td class="px-4 py-3 font-mono text-green-700 bg-gray-50/50">Dây: I hướng →, B hướng ⊗ (vào trong)</td>
+                                <td class="px-4 py-3 font-bold text-gray-900">F hướng ↑</td>
+                                <td class="px-4 py-3 text-gray-600">Bài mẫu kinh điển; máy vẽ dây nằm ngang, F đi lên</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-mono text-green-700 bg-gray-50/50">Điện tích e (q<0), v hướng →, B hướng ⊙ (ra ngoài)</td>
+                                <td class="px-4 py-3 font-bold text-gray-900">F hướng ↑</td>
+                                <td class="px-4 py-3 text-gray-600">Máy tự đảo chiều do q âm - giải quyết lỗi HS hay quên nhất</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-mono text-green-700 bg-gray-50/50">BÀI NGƯỢC: Dây, I hướng ↑, F hướng ←. Tìm B</td>
+                                <td class="px-4 py-3 font-bold text-gray-900">B hướng ⊗ <span class="text-xs text-gray-500 font-normal block mt-1">(Ghi chú: giả thiết B ⊥ I)</span></td>
+                                <td class="px-4 py-3 text-gray-600">Bài tìm ngược khó "xòe tay" nhất; máy ghi rõ giả thiết vuông góc</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-mono text-green-700 bg-gray-50/50">Dây: I hướng →, B hướng → (song song)</td>
+                                <td class="px-4 py-3 font-bold text-red-600">F = 0</td>
+                                <td class="px-4 py-3 text-gray-600">Trường hợp đặc biệt (I // B); củng cố điều kiện có lực từ</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTENT: TAB ĐỒ THỊ -->
+        <div id="tab-dothi" class="tab-content hidden animate-fade-in">
+            <div class="bg-white p-8 rounded-xl card-shadow border border-gray-100 mb-6">
+                <h2 class="text-2xl md:text-3xl font-bold text-orange-600 mb-2">ĐỒ THỊ ĐẲNG QUÁ TRÌNH 3 HỆ TRỤC</h2>
+                <p class="text-gray-500 text-sm mb-6 pb-6 border-b border-gray-200">Xóa bỏ nỗi sợ "đổi hệ trục" của học sinh trong chương Khí lí tưởng.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-sm font-bold uppercase text-gray-400 tracking-wider mb-3"><i class="fas fa-info-circle mr-2 text-orange-500"></i>Mô tả & Cơ sở</h3>
+                        <p class="text-gray-700 text-sm leading-relaxed text-justify">
+                            Vẽ dạng đồ thị của ba đẳng quá trình khí lí tưởng trên cả ba hệ trục p-V, p-T, V-T, kèm mũi tên chiều biến đổi. Khí lí tưởng là chương chiếm nhiều điểm tính toán nhất của đề tốt nghiệp 2025+, kỹ năng đổi hệ trục là điểm yếu phổ biến của học sinh để giải các câu định luật Charles, Boyle.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold uppercase text-gray-400 tracking-wider mb-3"><i class="fas fa-keyboard mr-2 text-orange-500"></i>Cách thức vận hành</h3>
+                        <div class="bg-orange-50/50 p-4 rounded-lg border border-orange-100 text-sm text-gray-800 leading-relaxed">
+                            1. Chọn quá trình: <span class="font-mono bg-white border px-1 rounded shadow-sm text-xs">[Đẳng nhiệt/áp/tích]</span><br>
+                            2. Tùy chọn: Nhập trạng thái 1 và 2 (°C tự đổi sang K).<br>
+                            3. Nhấn <span class="font-mono bg-white border px-1 rounded shadow-sm text-xs font-bold text-orange-600">[AXES]</span> để xoay vòng qua 3 hệ trục.<br>
+                            4. <strong>Kết quả:</strong> Máy tự đổi dạng đường (cong/thẳng đứng/ngang/qua gốc) ứng với từng trục CÙNG MỘT quá trình.
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-sm font-bold uppercase text-gray-400 tracking-wider mb-4"><i class="fas fa-project-diagram mr-2 text-orange-500"></i>Bảng dạng đường máy dựng</h3>
+                <div class="overflow-x-auto rounded-lg border border-gray-200 mb-6">
+                    <table class="min-w-full text-sm text-left">
+                        <thead class="bg-gray-50 text-gray-700">
+                            <tr>
+                                <th class="px-4 py-3 font-semibold w-1/4">Quá trình</th>
+                                <th class="px-4 py-3 font-semibold w-1/4">Hiển thị trên p-V</th>
+                                <th class="px-4 py-3 font-semibold w-1/4">Hiển thị trên p-T</th>
+                                <th class="px-4 py-3 font-semibold w-1/4">Hiển thị trên V-T</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100">
+                            <tr>
+                                <td class="px-4 py-3 font-bold text-gray-800 bg-gray-50/50">Đẳng nhiệt (T const)</td>
+                                <td class="px-4 py-3 text-orange-600 font-medium">Cung hyperbol</td>
+                                <td class="px-4 py-3 text-orange-600 font-medium">Đoạn thẳng đứng</td>
+                                <td class="px-4 py-3 text-orange-600 font-medium">Đoạn thẳng đứng</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-bold text-gray-800 bg-gray-50/50">Đẳng áp (p const)</td>
+                                <td class="px-4 py-3 text-gray-700">Đoạn nằm ngang</td>
+                                <td class="px-4 py-3 text-gray-700">Đoạn nằm ngang</td>
+                                <td class="px-4 py-3 text-gray-700">Đoạn thẳng qua gốc tọa độ</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-bold text-gray-800 bg-gray-50/50">Đẳng tích (V const)</td>
+                                <td class="px-4 py-3 text-gray-700">Đoạn thẳng đứng</td>
+                                <td class="px-4 py-3 text-gray-700">Đoạn thẳng qua gốc tọa độ</td>
+                                <td class="px-4 py-3 text-gray-700">Đoạn nằm ngang</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 text-sm">
+                    <strong>Ví dụ:</strong> Nén đẳng nhiệt từ V1=6L về V2=2L. Trục p-V vẽ cung hyperbol đi lên. Nhấn [AXES] sang p-T hiện đường thẳng đứng đi lên. Nhấn [AXES] sang V-T hiện đường thẳng đứng đi xuống.
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTENT: TAB THẤU KÍNH -->
+        <div id="tab-thaukinh" class="tab-content hidden animate-fade-in">
+            <div class="bg-white p-8 rounded-xl card-shadow border border-gray-100 mb-6">
+                <h2 class="text-2xl md:text-3xl font-bold text-purple-700 mb-2">BÀI TOÁN THẤU KÍNH</h2>
+                <p class="text-gray-500 text-sm mb-6 pb-6 border-b border-gray-200">Tự động kết luận tính chất ảnh nguyên văn bằng chữ - Phục vụ thi tự luận.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-sm font-bold uppercase text-gray-400 tracking-wider mb-3"><i class="fas fa-info-circle mr-2 text-purple-500"></i>Mô tả & Cơ sở</h3>
+                        <p class="text-gray-700 text-sm leading-relaxed text-justify">
+                            Giải bài toán thấu kính mỏng: học sinh nhập 2 trong 3 đại lượng {d, d′, f}, máy trả đại lượng còn lại, độ phóng đại k, và DÒNG KẾT LUẬN BẰNG CHỮ về tính chất ảnh đúng nguyên văn yêu cầu trình bày tự luận. Thấu kính là bài bắt buộc của đề học kỳ 9 và thi vào 10.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold uppercase text-gray-400 tracking-wider mb-3"><i class="fas fa-keyboard mr-2 text-purple-500"></i>Cách thức vận hành</h3>
+                        <div class="bg-purple-50/50 p-4 rounded-lg border border-purple-100 text-sm text-gray-800 leading-relaxed">
+                            1. Mode <span class="font-mono bg-white border px-1 rounded shadow-sm text-xs">[Thấu kính]</span>: hiện 3 ô d, d′, f.<br>
+                            2. Học sinh điền 2 ô (ô bỏ trống là ẩn; f<0 phân kỳ, d'<0 ảnh ảo).<br>
+                            3. Nhấn <span class="font-mono bg-white border px-1 rounded shadow-sm text-xs">[=]</span> → Máy trả giá trị ẩn, k, và dòng kết luận chữ.<br>
+                            4. (Tùy chọn) Nhấn <span class="font-mono bg-white border px-1 rounded shadow-sm text-xs">[HÌNH]</span> → Vẽ ảnh bằng 3 tia đặc biệt.
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-sm font-bold uppercase text-gray-400 tracking-wider mb-4"><i class="fas fa-list mr-2 text-purple-500"></i>Ví dụ minh họa</h3>
+                <div class="overflow-x-auto rounded-lg border border-gray-200">
+                    <table class="min-w-full text-sm text-left">
+                        <thead class="bg-gray-50 text-gray-700">
+                            <tr>
+                                <th class="px-4 py-3 font-semibold w-1/4">Đầu vào (Nhập d, d', f)</th>
+                                <th class="px-4 py-3 font-semibold w-1/5">Máy trả số liệu</th>
+                                <th class="px-4 py-3 font-semibold">Dòng KẾT LUẬN CHỮ máy hiển thị</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100">
+                            <tr>
+                                <td class="px-4 py-3 font-mono text-purple-700 bg-gray-50/50">f = 10, d = 15</td>
+                                <td class="px-4 py-3 font-medium text-gray-800">d′ = 30; k = −2</td>
+                                <td class="px-4 py-3 font-bold text-purple-900 bg-purple-50/30">"Ảnh THẬT, NGƯỢC chiều, cao gấp 2 lần vật, cách thấu kính 30 cm"</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-mono text-purple-700 bg-gray-50/50">f = 10, d = 5</td>
+                                <td class="px-4 py-3 font-medium text-gray-800">d′ = −10; k = +2</td>
+                                <td class="px-4 py-3 font-bold text-purple-900 bg-purple-50/30">"Ảnh ẢO, CÙNG chiều, cao gấp 2 lần vật" <span class="font-normal text-gray-500 text-xs ml-1">(Kính lúp)</span></td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-mono text-purple-700 bg-gray-50/50">f = -10 <span class="text-xs text-gray-500">(phân kỳ)</span>, d = 10</td>
+                                <td class="px-4 py-3 font-medium text-gray-800">d′ = −5; k = +0,5</td>
+                                <td class="px-4 py-3 font-bold text-purple-900 bg-purple-50/30">"Ảnh ẢO, CÙNG chiều, cao bằng 1/2 vật"</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-mono text-purple-700 bg-gray-50/50">f = 10, d = 10</td>
+                                <td class="px-4 py-3 font-medium text-red-500">Vô nghiệm</td>
+                                <td class="px-4 py-3 font-bold text-red-600 bg-red-50">"d = f: chùm tia ló song song — không tạo ảnh"</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-mono text-purple-700 bg-gray-50/50">BÀI NGƯỢC: d = 30, d′ = -7,5</td>
+                                <td class="px-4 py-3 font-medium text-gray-800">f = −10; k = +0,25</td>
+                                <td class="px-4 py-3 font-bold text-purple-900 bg-purple-50/30">"Thấu kính PHÂN KỲ, f = 10 cm"</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <style>
+        /* Animation cho nội dung tab */
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    
+    <script>
+        function switchTab(tabId) {
+            // 1. Ẩn tất cả nội dung tab
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('block');
+                content.classList.add('hidden');
+            });
+
+            // 2. Hiển thị nội dung tab được chọn
+            const selectedTabContent = document.getElementById(tabId);
+            selectedTabContent.classList.remove('hidden');
+            selectedTabContent.classList.add('block');
+
+            // 3. Reset style tất cả các nút tab về trạng thái inactive
+            const tabButtons = document.querySelectorAll('nav button');
+            tabButtons.forEach(btn => {
+                btn.classList.remove('tab-active', 'border-b-2');
+                btn.classList.add('tab-inactive', 'border-b-2');
+                
+                // Khôi phục viền dưới trong suốt cho hover
+                if(!btn.classList.contains('tab-active')) {
+                     btn.style.borderColor = 'transparent';
+                }
+            });
+
+            // 4. Áp dụng style active cho nút được click
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.remove('tab-inactive');
+            activeBtn.classList.add('tab-active');
+            activeBtn.style.borderColor = '#1e293b'; // Màu viền khi active
+        }
+        
+        // Fix nhỏ cho hover viền (Tailwind xử lý class hover nhưng inline style có thể override)
+        document.querySelectorAll('nav button').forEach(btn => {
+            btn.addEventListener('mouseover', function() {
+                if(this.classList.contains('tab-inactive')) {
+                    this.style.borderColor = '#cbd5e1';
+                }
+            });
+            btn.addEventListener('mouseout', function() {
+                if(this.classList.contains('tab-inactive')) {
+                    this.style.borderColor = 'transparent';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
